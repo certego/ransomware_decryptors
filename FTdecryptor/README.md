@@ -1,6 +1,6 @@
 # FTdecryptor
 
-Following some real episodes of plain text body intercepted through some surcata signatures, I developed this simple script to easily decrypt data encrypted with FTCODE.
+Following some real episodes of plain text body intercepted through some surcata signatures, I developed this simple password based script to easily decrypt data encrypted with FTCODE.
 
 *NB this script is in beta version and the author assumes no responsibility for any damage caused by the latter.*
 
