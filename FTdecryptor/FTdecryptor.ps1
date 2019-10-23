@@ -52,10 +52,10 @@ function Invoke-FTdecryptor{
         powershell -Executionpolicy Bypass -Command "Import-Module -Name .\FTdecryptor.ps1; Invoke-FTdecryptor -Verbose -Pass <ek > -Extension <ext>" -Log
 
     .EXAMPLE
-        Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https:/raw.github.blabla/FTdecryptor.ps1')); Invoke-FTdecryptor -Verbose -Pass <ek > -Extension <ext> -Log
+        Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/certego/ransomware_decryptors/master/FTdecryptor/FTdecryptor.ps1')); Invoke-FTdecryptor -Verbose -Pass <ek > -Extension <ext> -Log
 
     .LINK
-        https:/raw.github.blabla/FTdecryptor.ps1
+        http://certego.net/<FTdecryptor>
     #>
 
     [CmdletBinding(DefaultParameterSetName='GoSafe')]

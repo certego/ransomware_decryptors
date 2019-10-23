@@ -109,13 +109,13 @@ This parameter was only added for possible code changes by malware authors.
 ### It is recommended to read the help before use
 
 ```
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https:/raw.github.blabla/FTdecryptor.ps1')); Get-Help invoke-FTdecryptor -Full
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/certego/ransomware_decryptors/master/FTdecryptor/FTdecryptor.ps1')); Get-Help invoke-FTdecryptor -Full
 ```
 
 ### In-memory function delivery
 
 ```
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https:/raw.github.blabla/FTdecryptor.ps1')); Invoke-FTdecryptor.ps1 -Verbose -Pass <ek> -Extension <ext> -Log -Path C:\Users\<Username>
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/certego/ransomware_decryptors/master/FTdecryptor/FTdecryptor.ps1')); Invoke-FTdecryptor.ps1 -Verbose -Pass <ek> -Extension <ext> -Log -Path C:\Users\<Username>
 ```
 
 ### Execution via file
@@ -126,14 +126,14 @@ powershell -ExecutionPolicy bypass -Command "Import-Module -Name .\ftdecode.ps1;
 
 ## Examples
 
-# FTdecryptor basic usage
+### FTdecryptor basic usage
 
 ![FTdecryptor basic usage](FTdecryptor_basic.gif )
 
-# FTdecryptor backup and log features
+### FTdecryptor backup and log features
 
 ![FTdecryptor backup and log features ](FTdecryptor_backup_and_log_test.gif )
 
-#FTCODE v1018.1  patched decrypted
+### FTCODE v1018.1  patched decrypted
 
 ![FTCODE v1018.1 patched decrypted](FTCODE_1018.1_patched_decrypted.gif)
