@@ -6,7 +6,7 @@ Following some real episodes of cleartext body intercepted through some surcata 
 
 ## Intercept the body of the post
 
-### Requests received by the C&C server 
+### Requests received by the FTCODE C&C server 
 
 ```
 10.100.100.12 - - [23/Oct/2019 03:26:38] "GET /?need=aegzfej&vid=leg1& HTTP/1.1" 200 -
