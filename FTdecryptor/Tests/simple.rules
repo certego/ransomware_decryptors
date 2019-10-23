@@ -1,0 +1,1 @@
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"CERTEGO TROJAN FTCODE Registration Request (m.bompani)"; flow:to_server; content:"POST"; http_method; content:"ext="; http_client_body; content:"guid="; http_client_body; content:"ek="; http_client_body; classtype:trojan-activity; sid:9000931; rev:1;)
