@@ -2,11 +2,11 @@
 
 Following some real episodes of plain text body intercepted through some surcata signatures, I developed this simple password based script to easily decrypt data encrypted with FTCODE.
 
-*NB this script is in beta version and the author assumes no responsibility for any damage caused by the latter.*
+*Note: this script is in beta version and the author assumes no responsibility for any damage caused by the latter.*
 
-*NB currently the malware sends the password both in plain text and in encrypted form, we believe it is very likely that in the next versions the password cannot be easily intercepted*
+*Note: currently the malware sends the password both in plain text and in encrypted form, we believe it is very likely that in the next versions the password cannot be easily intercepted*
 
-*NB decrypting files with an incorrect password risks making them unrecoverable*
+*Note: decrypting files with an incorrect password risks making them unrecoverable, therefore, we recommend that you still use the backup option, making sure there is sufficient free disk space*
 
 ## Intercept the body of the post
 
