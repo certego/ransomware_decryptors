@@ -1,6 +1,6 @@
 # FTdecryptor
 
-Following some real episodes of cleartext body intercepted through some surcata signatures, I developed this simple script to easily decrypt data encrypted with FTCODE.
+Following some real episodes of plain text body intercepted through some surcata signatures, I developed this simple script to easily decrypt data encrypted with FTCODE.
 
 *NB this script is in beta version and the author assumes no responsibility for any damage caused by the latter.*
 
@@ -76,14 +76,14 @@ Specifies the full path to the log file, it requires the Log switch option. Defa
 
 ```
 Specifies the mandatory extension used by FTcode to rename files. It is currently used to identify possible infected files.
-In the observed samples the extension is passed in the "ext" parameter contained in the body of the cleartext post concerned.    
+In the observed samples the extension is passed in the "ext" parameter contained in the body of the  plain text post concerned.    
 ```
 
 **PARAMETER Pass**
 
 ```
 Specifies the mandatory password used by FTcode to encrypt files.
-In the observed samples the extension is passed in the "ek" parameter contained in the body of the cleartext post concerned.
+In the observed samples the extension is passed in the "ek" parameter contained in the body of the plain text post concerned.
 At Certego we intercept the requests in question on the networks monitored through a suricata signature.
 ```
 
