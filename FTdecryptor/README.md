@@ -141,3 +141,19 @@ powershell -ExecutionPolicy bypass -Command "Import-Module -Name .\ftdecode.ps1;
 ### FTCODE v1018.1  patched decrypted
 
 ![FTCODE v1018.1 patched decrypted](FTCODE_1018.1_patched_decrypted.gif)
+
+## Tests
+
+**Suricata:**
+
+To perform a quick test on suricata we recommend using the FTCODE_v1018.1_full.pcapng file.
+
+**FTCODE encryption:**
+
+To replicate the FTCODE encryption you can use the following function:
+
+**[Warning] this function should only be used for testing purposes**
+
+```
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/certego/ransomware_decryptors/master/FTdecryptor/Tests/only4testFTencryptor.ps1')); Invoke-FTencryptor -Verbose -Path C:\Users\<Users>\Desktop\<path2encrypt>
+```
