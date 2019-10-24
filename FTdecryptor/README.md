@@ -1,14 +1,14 @@
 # FTdecryptor
 
-Following some real episodes of plain text body intercepted through some surcata signatures, I developed this simple password based script to easily decrypt data encrypted with FTCODE.
+Following some real episodes of plain text body intercepted through Suricata signatures, I developed this simple password based script to easily decrypt data encrypted with FTCODE ransomware.
 
-*Note: this script is in beta version and the author assumes no responsibility for any damage caused by the latter.*
+**Note #1**: *this must be considered a beta version of the script; the author assumes no responsibility for any damage caused by running it.*
 
-*Note: currently the malware sends the password both in plain text and in encrypted form, we believe it is very likely that in the next versions the password cannot be easily intercepted*
+**Note #2**: *currently the malware sends the password both as plain and cypher text; we believe the behavior may change soon as the malware is updated, and the plain text form may* not be available anymore.*
 
-*Note: decrypting files with an incorrect password risks making them unrecoverable, therefore, we recommend that you still use the backup option, making sure there is sufficient free disk space*
+**Note #3**: *decrypting files with an incorrect password may make them unrecoverable; so, we recommend taking a backup of the files before running the script.*
 
-## Intercept the body of the post
+## Intercept the body of the POST
 
 ### Requests received by the FTCODE C&C server 
 
@@ -20,6 +20,19 @@ ver=1018.1&vid=leg1&guid=507df552-5c4b-4d38-a486-0c721e84abdb&ext=10b15d&ek=fumg
 ver=1018.1&vid=leg1&guid=507df552-5c4b-4d38-a486-0c721e84abdb&status=start
 10.100.100.12 - - [23/Oct/2019 03:27:58] "POST / HTTP/1.1" 200 -
 ver=1018.1&vid=leg1&guid=507df552-5c4b-4d38-a486-0c721e84abdb&status=done&res=28
+```
+
+### Complete POST HTTP request containing the password
+
+```
+POST / HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Host: pta.bsspta.com
+Content-Length: 591
+Expect: 100-continue
+Connection: Keep-Alive
+
+ver=1018.1&vid=leg1&guid=507df552-5c4b-4d38-a486-0c721e84abdb&ext=10b15d&ek=fumgTalOYphVc1RntCG2vQrU4AeBHIb7wFJo9LDMxE3k6sj0S5&r1=UjVUZHd5ekpXbThoTkprc0VZbTBNM25vdkNYTFpYdFpCdnYxZkM1TTY2MDZ0enZ1NFEvVVIxVzk5ZTVscnJwNkx0Y1FIbnVwOFRoeStzclhWWURaWGdjZ0pzYjdGL3U5MHVPcjViTUdIeGRsQTA2VnFINGNNenlQaHNKMWRuV05wOUxjcGZ2czVRQUNSSTRZRkY3R3BaOHluSnlVOVRiN3FHcENvb2dWYk5vPTthWDdHZVNvOVozT1dGdCtMRDhBeG9RTXZFU3YwUjBXWHBNbGd0S08yd3JVNUNTeXhIamZtMldOUytGMkZjdnVwTXE1bWU5T09VNkNvS0dpTnZ5bmNWZGZsdUZld2p2cVdHbEwwN0E3bW5xbEVXT3pCMXlETml3SEwzcGxqR0RrN2JmQklhMytmc1c2bGFxZXlqc053SUkwNE8zTXNueHJGSVpUQXhJem50Qms9&
 ```
 
 ### Basic suricata signature example
@@ -38,7 +51,7 @@ alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"CERTEGO TROJAN FTCODE Regist
 Once the FTcode password (ek) is intercepted in the http post request it is possible to decrypt the files through this simple function.
 
 Authors: Gabriele Pippi (@gabriele_pippi)
-License: AGPL
+License: AGPL-3.0
 General Requirements: encryption password is required
 Required pwsh Dependencies: None
 Optional pwsh Dependencies: None
@@ -49,14 +62,14 @@ Tested on Version 1018.1
 
 ```
 [Warning] In case there is any error during the decryption process all files will become unrecoverable.
-Tries to decrypt without backing up files
+Tries to decrypt without backing up files.
 This parameter is mutually exclusive with BackupPath.
 ```
 
 **PARAMETER BackupPath**
 
 ```
-Specifies the directory where the encrypted files will be backed up.
+Specifies the directory where the encrypted files will be backed up. Default = (get-location).Path + '\BACKUPftdecryptor_' + (get-date).tostring("MM-dd-yyyy")
 This parameter is mutually exclusive with Force.
 ```
 
@@ -125,18 +138,18 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw
 ### Execution via file
 
 ```
-powershell -ExecutionPolicy bypass -Command "Import-Module -Name .\ftdecode.ps1; Invoke-FTdecryptor -Verbose -Pass <ek> -Extension <ext> -Log"
+powershell -ExecutionPolicy Bypass -Command "Import-Module -Name .\FTdecryptor.ps1; Invoke-FTdecryptor -Verbose -Pass <ek> -Extension <ext> -Log"
 ```
 
 ## Examples
 
 ### FTdecryptor basic usage
 
-![FTdecryptor basic usage](FTdecryptor_basic.gif )
+![FTdecryptor basic usage](FTdecryptor_basic.gif)
 
 ### FTdecryptor backup and log features
 
-![FTdecryptor backup and log features ](FTdecryptor_backup_and_log_test.gif )
+![FTdecryptor backup and log features ](FTdecryptor_backup_and_log_test.gif)
 
 ### FTCODE v1018.1  patched decrypted
 

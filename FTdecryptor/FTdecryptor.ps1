@@ -4,7 +4,7 @@ function Invoke-FTdecryptor{
         Once the FTcode password (ek) is intercepted in the http post request it is possible to decrypt the files through this simple function.
 
         Authors: Gabriele Pippi (@gabriele_pippi)
-        License: AGPL-3.0 
+        License: AGPL-3.0
         General Requirements: encryption password is required
         Required pwsh Dependencies: None
         Optional pwsh Dependencies: None
@@ -16,7 +16,7 @@ function Invoke-FTdecryptor{
         This parameter is mutually exclusive with BackupPath.
 
     .PARAMETER BackupPath
-        Specifies the directory where the encrypted files will be backed up. Default = (get-location).Path + '\ftdecryptor_' + (get-date).tostring("MM-dd-yyyy")
+        Specifies the directory where the encrypted files will be backed up. Default = (get-location).Path + '\BACKUPftdecryptor_' + (get-date).tostring("MM-dd-yyyy")
         This parameter is mutually exclusive with Force.
     
     .PARAMETER Log
@@ -55,13 +55,13 @@ function Invoke-FTdecryptor{
         Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/certego/ransomware_decryptors/master/FTdecryptor/FTdecryptor.ps1')); Invoke-FTdecryptor -Verbose -Pass <ek > -Extension <ext> -Log
 
     .LINK
-        http://certego.net/<FTdecryptor>
+        https://www.certego.net/en/news/ftdecryptor-a-simple-password-based-ftcode-decryptor/
     #>
 
     [CmdletBinding(DefaultParameterSetName='GoSafe')]
 
     Param(
-        [Parameter(Mandatory=$false,ParameterSetName = 'GoSafe')][string]$BackupPath= (get-location).Path + '\ftdecryptor_' + (get-date).tostring("MM-dd-yyyy"),
+        [Parameter(Mandatory=$false,ParameterSetName = 'GoSafe')][string]$BackupPath= (get-location).Path + '\BACKUPftdecryptor_' + (get-date).tostring("MM-dd-yyyy"),
         [Parameter(Mandatory=$false,ParameterSetName = 'GoBrutal')][switch]$Force=$false,
         [Parameter(Mandatory=$true)][string]$Extension,
         [Parameter(Mandatory=$true)][string]$Pass,
@@ -70,7 +70,7 @@ function Invoke-FTdecryptor{
         [Parameter(Mandatory=$false)][string]$LogPath= (get-location).Path + '\ftdecryptor_'+ (get-date).tostring("MM-dd-yyyy") + '.log',
         [Parameter(Mandatory=$false)][int]$MaxByteSize2Decrypt=[int]40960, ### be careful to change this parameter
         [Parameter(Mandatory=$false)][int]$MinFreeDiskSpace=[int]50000,
-	    [Parameter(Mandatory=$false)][string]$Version="1018.1",
+        [Parameter(Mandatory=$false)][string]$Version="1018.1",
         [Parameter(Mandatory=$false)][switch]$Help=$false
     )
     function FtDecrypt($bytefilein, $passin){
@@ -207,7 +207,7 @@ function Invoke-FTdecryptor{
                 }
         }
 
-    if ($Extension -notmatch '^[a-z0-9]+$')
+    if ($Extension -NotMatch '^[a-z0-9]+$')
         {
             Write-Error "[!] Error: non-alphanumeric extension - $Extension`r"
             return
@@ -258,7 +258,7 @@ function Invoke-FTdecryptor{
 
                     $encryptedfiles | % {
 
-                        if ( $_.FullName -notmatch $excludedfolders )
+                        if ( $_.FullName -NotMatch $excludedfolders )
                             {
                                 FileRestoration $_ $Pass $Extension
                             }
