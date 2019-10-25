@@ -145,15 +145,21 @@ powershell -ExecutionPolicy Bypass -Command "Import-Module -Name .\FTdecryptor.p
 
 ### FTdecryptor basic usage
 
-![FTdecryptor basic usage](FTdecryptor_basic.webm)
+![FTdecryptor basic usage](FTdecryptor_basic.gif)
+
+![Video](https://raw.githubusercontent.com/certego/ransomware_decryptors/master/FTdecryptor/FTdecryptor_basic.webm)
 
 ### FTdecryptor backup and log features
 
-![FTdecryptor backup and log features ](FTdecryptor_backup_and_log_test.webm)
+![FTdecryptor backup and log features](FTdecryptor_backup_and_log_test.gif)
+
+![Video]https://raw.githubusercontent.com/certego/ransomware_decryptors/master/FTdecryptor/FTdecryptor_backup_and_log_test.webm)
 
 ### FTCODE v1018.1  patched decrypted
 
-![FTCODE v1018.1 patched decrypted](FTCODE_1018.1_patched_decrypted.webm)
+![FTCODE v1018.1 patched decrypted](FTCODE_1018.1_patched_decrypted.gif)
+
+![Video](https://raw.githubusercontent.com/certego/ransomware_decryptors/master/FTdecryptor/FTCODE_1018.1_patched_decrypted.webm)
 
 ## Tests
 
