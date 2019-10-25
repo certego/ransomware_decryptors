@@ -145,15 +145,15 @@ powershell -ExecutionPolicy Bypass -Command "Import-Module -Name .\FTdecryptor.p
 
 ### FTdecryptor basic usage
 
-![FTdecryptor basic usage](FTdecryptor_basic.gif)
+![FTdecryptor basic usage](FTdecryptor_basic.webm)
 
 ### FTdecryptor backup and log features
 
-![FTdecryptor backup and log features ](FTdecryptor_backup_and_log_test.gif)
+![FTdecryptor backup and log features ](FTdecryptor_backup_and_log_test.webm)
 
 ### FTCODE v1018.1  patched decrypted
 
-![FTCODE v1018.1 patched decrypted](FTCODE_1018.1_patched_decrypted.gif)
+![FTCODE v1018.1 patched decrypted](FTCODE_1018.1_patched_decrypted.webm)
 
 ## Tests
 
